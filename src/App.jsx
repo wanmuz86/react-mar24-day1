@@ -1,5 +1,6 @@
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Counter from './components/Counter';
 
 import './App.css'
 
@@ -14,6 +15,7 @@ function App() {
         <label htmlFor="name">Enter name</label>
         <input type="text" id="name" />
       </div>
+      <Counter/>
       <Footer />
     </>
   )
