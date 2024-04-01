@@ -7,10 +7,14 @@ function App() {
 
   return (
     <>
-    <Header/>
+      <Header />
       <h1>Hello World</h1>
       <h2>Welcome to my first React Project</h2>
-    <Footer/>
+      <div>
+        <label htmlFor="name">Enter name</label>
+        <input type="text" id="name" />
+      </div>
+      <Footer />
     </>
   )
 }

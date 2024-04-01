@@ -1,0 +1,11 @@
+.header {
+  background-color: red;
+  text-align: center;
+  padding: 10px;
+}
+
+.footer {
+  background-color: yellow;
+  text-align: center;
+  padding: 10px;
+}
