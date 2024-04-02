@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const AddForm = () => {
+const AddForm = ({onAddUser}) => {
 
     const [newUser, setNewUser] = useState({
         name: '',
@@ -19,10 +19,19 @@ const AddForm = () => {
     const handleAgeChange = (e) => setNewUser(
         { ...newUser, age: parseInt(e.target.value) })
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        // Override the normal/SSR form which is removing the data
+        e.preventDefault();
         console.log(newUser)
+        onAddUser(newUser);
+        
+        // Reset back the form to it's initial value
+        setNewUser({
+            name:'',
+            age:0
+        })
     }
-    
+
     return (
         <div>
             <h2>My Form</h2>
@@ -33,7 +42,7 @@ const AddForm = () => {
                 <label htmlFor='age'>Enter age</label>
                 <input type="number" name="age" id="age"
                     value={newUser.age} onChange={handleAgeChange} />
-                <button type="Sumbit">Add New User</button>
+                <button type="Submit">Add New User</button>
             </form>
         </div>
     )
