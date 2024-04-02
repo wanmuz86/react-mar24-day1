@@ -1,7 +1,7 @@
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Counter from './components/Counter';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './App.css'
 import UserInfo from './components/UserInfo';
 import UserList from './components/UserList';
@@ -32,6 +32,10 @@ function App() {
     }
   ]); 
 
+  // It will create reference to users..
+  // The value will not be changed despite the change of users state..
+  const userRefs = useRef(users);
+
   const getNextUserId = () => {
     if (users.length === 0){
       // If no user, id is 1
@@ -56,7 +60,27 @@ function App() {
     setUsers(updateUsers);
   }
 
-  return (
+  // This will be only called once during the initialization
+  // You can use to do initialization of your component
+  // eg: API call, retrieving data from local storage 
+  useEffect(()=> {
+
+    console.log("First load of the component");
+
+  },[]);
+
+  // In this case, this will be called
+  // Whenever there is a change on users state
+  useEffect(()=>{
+
+    console.log("change in users");
+ 
+    console.log("Referenced value",userRefs.current); // store the referenced value
+    console.log("Current value", users)
+
+  },[users])
+
+  return (  
     <>
       <Header />
       <h1>Hello World</h1>
