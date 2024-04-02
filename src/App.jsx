@@ -5,7 +5,7 @@ import Counter from './components/Counter';
 import './App.css'
 import UserInfo from './components/UserInfo';
 import UserList from './components/UserList';
-
+import AddForm from './components/AddForm';
 function App() {
 
   const userInfo = {
@@ -47,6 +47,8 @@ function App() {
       <Counter initialValue={10} />
       <Counter initialValue={5} />
       <Counter initialValue={2} />
+      <hr/>
+      <AddForm/>
       <hr />
       <UserList users={users} />
       <hr />
