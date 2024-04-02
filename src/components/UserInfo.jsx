@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Object destructuring of the props
-const UserInfo = ({ user }) => {
+const UserInfo = ({ user, onDeleteUser }) => {
     // Object descturing of user
     const { id, name, age } = user;
     return (
@@ -16,6 +16,7 @@ const UserInfo = ({ user }) => {
                     :
                     <p>Adult: Welcome to our platform</p>
             }
+            <button onClick={()=> onDeleteUser(user)}>Delete</button>
         </div>
     )
 }

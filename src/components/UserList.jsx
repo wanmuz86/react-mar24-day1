@@ -1,7 +1,12 @@
 import React from 'react'
 import UserInfo from './UserInfo'
 
-const UserList = ({ users }) => {
+const UserList = ({ users, onPassDeleted }) => {
+
+    const handleDelete = (user) => {
+        onPassDeleted(user);
+    }
+    
     return (
         <div>
 
@@ -12,7 +17,7 @@ const UserList = ({ users }) => {
                 users.map(val =>
                     <li key={val.id}>
                         {/* We render/reuse UserInfo component  as the prop stucture is the same*/}
-                        <UserInfo user={val} />
+                        <UserInfo user={val} onDeleteUser={handleDelete}/>
                     </li>
                 )
             }

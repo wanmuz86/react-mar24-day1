@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const AddForm = ({onAddUser}) => {
+const AddForm = ({ onAddUser }) => {
 
     const [newUser, setNewUser] = useState({
         name: '',
@@ -24,11 +24,11 @@ const AddForm = ({onAddUser}) => {
         e.preventDefault();
         console.log(newUser)
         onAddUser(newUser);
-        
+
         // Reset back the form to it's initial value
         setNewUser({
-            name:'',
-            age:0
+            name: '',
+            age: 0
         })
     }
 

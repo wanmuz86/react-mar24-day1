@@ -49,6 +49,13 @@ function App() {
     setUsers([...users,{ ...newUser, id:getNextUserId()}])
   }
 
+  const handlePassDeleted = (user) => {
+    // Filter the users , by removing user with the same id passed from
+    // the UserInfo component
+    const updateUsers = users.filter(val=> val.id !== user.id);
+    setUsers(updateUsers);
+  }
+
   return (
     <>
       <Header />
@@ -67,7 +74,7 @@ function App() {
       <hr/>
       <AddForm onAddUser={handleAddUser}/>
       <hr />
-      <UserList users={users} />
+      <UserList users={users} onPassDeleted={handlePassDeleted}/>
       <hr />
       <h2>User Information</h2>
       <UserInfo user={userInfo} />
