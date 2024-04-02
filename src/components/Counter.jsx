@@ -2,7 +2,7 @@ import React, {useState} from 'react' // 1) Import {useState}
 
 // I need a variable to store a value changeable by the button pressed
 // State
-const Counter = () => {
+const Counter = ({initialValue}) => {
 
     // Declare the state/variable
 // Declare a variable called counter
@@ -10,7 +10,7 @@ const Counter = () => {
 // If there is a change of the counter , use setCounter method (setter)
 // counter = counter +1 // Cannot use in React
 
-    const [counter,setCounter] = useState(0);
+    const [counter,setCounter] = useState(initialValue);
 
     // Create a function increment, it will set the value 
     // of counter to counter+1
